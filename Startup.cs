@@ -27,6 +27,7 @@ namespace MandotaryAssignment01
             }
 
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
     }
 }

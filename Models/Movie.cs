@@ -5,15 +5,22 @@ using System.Threading.Tasks;
 
 namespace MandotaryAssignment01.Models
 {
-    public class Movie
+    public class Movie : Product
     {
         public string Director { get; set; }
         public short Released { get; set; }
 
-        public Movie(string director, short released)
+        public Movie(string title, decimal price)
         {
-            this.Director = Director;
-            this.Released = released;
+            this.Title = title;
+            this.Price = price;
+        }
+        public Movie(string title, decimal price, string imageUrl, string director)
+        {
+            this.Title = title;
+            this.Price = price;
+            this.ImageUrl = imageUrl;
+            this.Director = director;
         }
 
 

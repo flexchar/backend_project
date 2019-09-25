@@ -5,20 +5,32 @@ using System.Threading.Tasks;
 
 namespace MandotaryAssignment01.Models
 {
-    public class MusicCD
+    public class MusicCD : Product
     {
         public string Artist { get; set; }
         public string Label { get; set; }
         public short Released { get; set; }
+        public TimeSpan PlayingTime
+        {
+            get
+            {
+                TimeSpan time = new TimeSpan();
+                foreach (Track t in this.Tracks)
+                {
+                    time += t.Length;
+                }
+                return time;
+            }
 
-        public TimeSpan PlayingTime { get; }
 
-        public List<Track> Tracks { get; }
+        }
+        public List<Track> Tracks { get; } = new List<Track>();
 
-        public MusicCD(string artist, string label, short released)
+        public MusicCD(string artist, string title, decimal price, short released)
         {
             this.Artist = artist;
-            this.Label = label;
+            this.Title = title;
+            this.Price = price;
             this.Released = released;
         }
 

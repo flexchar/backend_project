@@ -1,0 +1,70 @@
+﻿
+@using MandotaryAssignment01.Models 
+@{
+    ViewData["Title"] = "Catalogue";
+}
+
+<h2>Catalogue</h2>
+
+
+@foreach (MusicCD cd in ViewBag.music)
+{
+<div>
+    <strong>Album:</strong> @cd.Label<br>
+    <strong>Artist:</strong> @cd.Artist<br>
+    <strong>Price:</strong> @cd.Price<br>
+    <img src="https://picsum.photos/300/200">
+
+</div>
+<div>
+    <strong>Tracks: @cd.Tracks.Count</strong>
+
+    <ol>
+    @foreach (Track t in cd.Tracks)
+    {
+        <li>@t.Title @t.Composer @t.Length</li>
+    }
+
+    </ol>
+    <p><strong>Total playing time:</strong> @cd.PlayingTime</p>
+</div>
+}
+
+
+
+<h3>Movies</h3>
+@foreach (Movie movie in ViewBag.movies)
+{
+<div>
+    <dl>
+        <dt>Title</dt>
+        <dd>@movie.Title</dd>
+    </dl>
+    <dl>
+        <dt>Director</dt>
+        <dd>@movie.Director</dd>
+    </dl>
+    <dl>
+        <dt>Price</dt>
+        <dd>@String.Format("{0:0.00}", movie.Price) </dd>
+    </dl>
+    @if (!String.IsNullOrEmpty(movie.ImageUrl)) 
+    {
+    <img src="@movie.ImageUrl" alt="@movie.Title" />
+    } 
+
+</div>
+}
+
+<h3>Books</h3>
+@foreach (Book book in ViewBag.books)
+{
+<div>
+    <img src="https://source.unsplash.com/random/150x350" alt="@book.Title" />
+    <strong>Title:</strong> @book.Title<br />
+    Director: @book.Author<br>
+    Price: @String.Format("{0:0.00}", book.Price) <br />
+    ISBN: @book.ISBN <br />
+</div>
+}
+

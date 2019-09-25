@@ -11,11 +11,23 @@ namespace MandotaryAssignment01.Models
 
         public DateTime OrderDate { get; set; }
 
-        public decimal TotalPrice { get; }
+        public decimal TotalPrice
+        {
+            get
+            {
+                Decimal price = 0;
+                foreach (OrderItem i in this.OrderItems)
+                {
+                    price += i.Product.Price;
+                }
+                return price;
+            }
+        }
+
 
         public Customer Customer { get; set; }
 
-        public List<OrderItem> OrderItems { get; }
+        public List<OrderItem> OrderItems { get; } = new List<OrderItem>();
 
         public Invoice(int invoiceId, DateTime orderDate, Customer customer)
         {
@@ -26,7 +38,8 @@ namespace MandotaryAssignment01.Models
 
         public Invoice AddOrderItem(Product product, int quantity)
         {
-            this.OrderItems.Add(new OrderItem(product, quantity));
+            OrderItem o = new OrderItem(product, quantity);
+            this.OrderItems.Add(o);
             return this;
         }
     }

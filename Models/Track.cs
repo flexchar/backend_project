@@ -11,10 +11,9 @@ namespace MandotaryAssignment01.Models
         public string Composer { get; set; }
         public TimeSpan Length { get; set; }
 
-        public Track(string title, string composer, TimeSpan length)
+        public Track(string title, TimeSpan length)
         {
             this.Title = title;
-            this.Composer = composer;
             this.Length = length;
         }
 

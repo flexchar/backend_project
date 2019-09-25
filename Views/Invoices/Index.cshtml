@@ -1,0 +1,53 @@
+﻿@using MandotaryAssignment01.Models 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Invoices</h2>
+
+
+<table>
+    <tbody>
+        <tr>
+            <th>Customer</th>
+            <th>
+                <div style="float:left;width:80%;">Product</div>
+                <div style="float:right;width:50px;">Price</div>
+            </th>
+        </tr>
+        
+        @foreach (Invoice i in ViewBag.invoices)
+        {
+            @if (i.TotalPrice == 0) {
+                continue;
+            }
+        <tr>
+            <td width="150">@i.Customer.FirstName @i.Customer.LastName</td>
+            <td>
+                <table>
+                    <tbody>
+                        @foreach (OrderItem o in i.OrderItems)
+                        {
+                        <tr>
+                            <td width="500">@o.Product.Title</td>
+                            <td style="width:50px" class="price">@o.Product.Price</td>
+                        </tr>
+                        }
+
+                        <tr>
+                            <td>
+                                <strong>Total</strong>
+                            </td>
+                            <td class="price">
+                                <strong>@String.Format("{0, 00}", i.TotalPrice)</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
+

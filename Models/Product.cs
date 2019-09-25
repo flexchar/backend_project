@@ -15,6 +15,11 @@ namespace MandotaryAssignment01.Models
 
         public string ImageUrl { get; set; }
 
+        public Product()
+        {
+
+        }
+
         public Product(string title, decimal price)
         {
             this.Title = title;
