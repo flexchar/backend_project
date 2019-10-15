@@ -12,11 +12,11 @@ namespace MandotaryAssignment01.Controllers
     {
         public IActionResult Index()
         {
-            ViewBag.music = Repository.Products.OfType<MusicCD>().ToList();
-            ViewBag.movies = Repository.Products.OfType<Movie>().ToList();
-            ViewBag.books = Repository.Products.OfType<Book>().ToList();
+            // ViewBag.music = Repository.Products.OfType<MusicCD>().ToList();
+            // ViewBag.movies = Repository.Products.OfType<Movie>().ToList();
+            // ViewBag.books = Repository.Products.OfType<Book>().ToList();
 
-            return View();
+            return View(Repository.Products);
         }
     }
 }
