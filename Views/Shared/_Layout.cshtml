@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>@ViewData["Title"] - The Rusty Store</title>
+
+        <link rel="stylesheet" href="/app.css" />
+    </head>
+    <body class="flex flex-col h-full">
+        <header class="py-4 border-b mb-6">
+            <div class="container flex items-center justify-between">
+                <a asp-controller="home" asp-action="Index">
+                    <h2 class="text-lg text-red-700	hover:text-blue-700">
+                        The Rusty Store
+                    </h2>
+                </a>
+                <nav>
+                    <ul class="flex">
+                        <li class="mx-2 text-red-700 hover:text-blue-700">
+                            <a asp-controller="catalogue" asp-action="Index">
+                                Catalogue
+                            </a>
+                        </li>
+                        <li class="mx-2 text-red-700 hover:text-blue-700">
+                            <a asp-controller="invoices" asp-action="Index">
+                                Invoices
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="container flex-1">
+            @RenderBody()
+        </section>
+
+        <footer class="border-t py-10 mt-5">
+            <div class="container flex justify-between">
+                <p>The Backend Project</p>
+                <p>Lukas Vanagas 🍌</p>
+            </div>
+        </footer>
+
+        <script src="/app.js"></script>
+    </body>
+</html>
