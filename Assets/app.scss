@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+        Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: whitesmoke;
+}
+
+@import 'tailwindcss/utilities';
