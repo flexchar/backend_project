@@ -1,0 +1,22 @@
+@model int
+
+<form
+    id="@Model"
+    asp-action="AddToCart"
+    asp-controller="Cart"
+    method="post"
+    class="text-right"
+>
+    <input type="hidden" name="ProductID" value="@Model" />
+    <input
+        type="hidden"
+        name="returnUrl"
+        value="@ViewContext.HttpContext.Request.PathAndQuery()"
+    />
+    <button
+        type="submit"
+        class="m-3 px-4 py-2 border rounded text-green-500 border-green hover:bg-green-500 hover:border-white hover:text-white"
+    >
+        Add To Cart
+    </button>
+</form>
