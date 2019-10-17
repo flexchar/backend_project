@@ -1,0 +1,57 @@
+@model CartIndexViewModel
+<!-- -->
+@{ ViewData["Title"] = "Your cart"; }
+
+<table class="table-fixed w-full text-center my-6">
+    <thead>
+        <tr>
+            <th class="w-1/6">Quantity</th>
+            <th class="w-2/6">Item</th>
+            <th class="w-1/6">Price</th>
+            <th class="w-1/6">Subtotal</th>
+            <th class="w-1/6">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines) {
+        <tr>
+            <td>@line.Quantity</td>
+            <td>@line.Product.Title</td>
+            <td>@line.Product.Price.ToString("c")</td>
+            <td>@((line.Quantity * line.Product.Price).ToString("c"))</td>
+            <td>
+                <form asp-action="RemoveFromCart" method="post">
+                    <input
+                        type="hidden"
+                        name="ProductId"
+                        value="@line.Product.ProductId"
+                    />
+                    <input
+                        type="hidden"
+                        name="returnUrl"
+                        value="@Model.ReturnUrl"
+                    />
+                    <button type="submit">Remove</button>
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot class="border-t">
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-center">
+                @Model.Cart.ComputeTotalValue().ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+@if (!String.IsNullOrWhiteSpace(Model.ReturnUrl)) {
+<a
+    class="m-3 px-4 py-2 border rounded text-green-500 border-green hover:bg-green-500 hover:border-white hover:text-white"
+    href="@Model.ReturnUrl"
+>
+    Continue shopping
+</a>
+}

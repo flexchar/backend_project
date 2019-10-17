@@ -48,13 +48,13 @@ namespace MandotaryAssignment01.Controllers
         {
             HttpContext.Session.SetJson("Cart", cart);
         }
-        // public ViewResult Index(string returnUrl)
-        // {
-        //     return View(new CartIndexViewModel
-        //     {
-        //         Cart = GetCart(),
-        //         ReturnUrl = returnUrl
-        //     });
-        // }
+        public ViewResult Index(string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
+                Cart = GetCart(),
+                ReturnUrl = returnUrl
+            });
+        }
     }
 }
