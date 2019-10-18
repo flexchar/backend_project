@@ -5,7 +5,7 @@
     asp-action="AddToCart"
     asp-controller="Cart"
     method="post"
-    class="text-right"
+    class="flex flex-row justify-end mb-4 mx-3"
 >
     <input type="hidden" name="ProductID" value="@Model" />
     <input
@@ -13,9 +13,20 @@
         name="returnUrl"
         value="@ViewContext.HttpContext.Request.PathAndQuery()"
     />
+    <label class="mr-2">
+        Qty:
+        <input
+            type="number"
+            name="Quantity"
+            min="0"
+            max="10"
+            value="1"
+            class="text-center  px-1 appearance-none border h-full leading-tight rounded w-10"
+        />
+    </label>
     <button
         type="submit"
-        class="m-3 px-4 py-2 border rounded text-green-500 border-green hover:bg-green-500 hover:border-white hover:text-white"
+        class="px-4 py-2 border rounded text-green-500 border-green hover:bg-green-500 hover:border-white hover:text-white"
     >
         Add To Cart
     </button>
