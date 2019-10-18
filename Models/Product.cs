@@ -17,13 +17,15 @@ namespace MandotaryAssignment01.Models
 
         public Product()
         {
-
+            this.ProductId = new Random().Next(100, 300);
         }
 
         public Product(string title, decimal price)
         {
             this.Title = title;
             this.Price = price;
+
+            this.ProductId = new Random().Next(100, 300);
         }
 
 
