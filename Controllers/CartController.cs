@@ -11,15 +11,31 @@ namespace MandotaryAssignment01.Controllers
 {
     public class CartController : Controller
     {
-        public RedirectToActionResult AddToCart(int productID, string returnUrl)
+        private Cart cart;
+
+        public CartController(Cart cartService)
+        {
+            this.cart = cartService;
+        }
+
+        public ViewResult Index(string returnUrl)
+        {
+            return View(
+                new CartIndexViewModel
+                {
+                    Cart = this.cart,
+                    ReturnUrl = returnUrl
+                }
+            );
+        }
+
+        public RedirectToActionResult AddToCart(int productID, string returnUrl, int quantity = 1)
         {
             Product product = Repository.Products.FirstOrDefault(p => p.ProductId == productID);
 
             if (product != null)
             {
-                Cart cart = GetCart();
-                cart.AddItem(product, 1);
-                SaveCart(cart);
+                this.cart.AddItem(product, quantity);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
@@ -28,33 +44,9 @@ namespace MandotaryAssignment01.Controllers
             Product product = Repository.Products.FirstOrDefault(p => p.ProductId == productID);
             if (product != null)
             {
-                GetCart().RemoveLine(product);
+                this.cart.RemoveLine(product);
             }
             return RedirectToAction("Index", new { returnUrl });
-        }
-
-        private Cart GetCart()
-        {
-            Cart cart = HttpContext.Session.GetJson<Cart>("Cart");
-
-            if (cart == null)
-            {
-                cart = new Cart();
-                HttpContext.Session.SetJson("Cart", cart);
-            }
-            return cart;
-        }
-        private void SaveCart(Cart cart)
-        {
-            HttpContext.Session.SetJson("Cart", cart);
-        }
-        public ViewResult Index(string returnUrl)
-        {
-            return View(new CartIndexViewModel
-            {
-                Cart = GetCart(),
-                ReturnUrl = returnUrl
-            });
         }
     }
 }
