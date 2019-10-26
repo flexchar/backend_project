@@ -2,8 +2,8 @@
 
 <div class="">
     @if (Model.Lines.Count() > 0) {
-    <span class="border-l pl-2 text-sm text-gray-700">
-        <b>Your cart:</b>
+    <span class="text-sm text-gray-700">
+        <b>Cart:</b>
         @Model.Lines.Sum(x => x.Quantity) item(s)
         @Model.ComputeTotalValue().ToString("c")
     </span>

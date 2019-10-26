@@ -5,15 +5,8 @@
                 The Rusty Store
             </h2>
         </a>
-        <nav class="flex">
-            <a
-                asp-controller="catalogue"
-                asp-action="Index"
-                class="mx-2 text-red-700 hover:text-blue-700"
-            >
-                Catalogue
-            </a>
+        <div class="flex">
             @await Component.InvokeAsync("CartSummary")
-        </nav>
+        </div>
     </div>
 </header>
