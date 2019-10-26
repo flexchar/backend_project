@@ -1,0 +1,22 @@
+@model IEnumerable<string>
+
+<h2 class="text-xl pb-2">Categories</h2>
+<ul class="py-2 -mx-2 flex justify-between text-xl uppercase  text-gray-700">
+    <li class="px-3 py-2 bg-white mx-2 rounded hover:shadow-md flex-1">
+        <a
+            asp-action="Index"
+            asp-controller="Catalogue"
+            asp-route-category=""
+        >All</a>
+    </li>
+    @foreach (string name in Model) {
+    <li class="px-3 py-2 mx-2 rounded flex-1 @(name.ToLower() == ViewBag.SelectedCategory ? "bg-green-500 text-green-200" : "bg-white hover:shadow-md")">
+        <a
+            asp-action="Index"
+            asp-controller="Catalogue"
+            asp-route-category="@name.ToLower()"
+            asp-route-page="1"
+        >@name</a>
+    </li>
+    }
+</ul>
