@@ -1,22 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using MandotaryAssignment01.Infrastructure;
-using MandotaryAssignment01.Models;
+using MandotaryAssignment01.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MandotaryAssignment01.Controllers
 {
     public class CatalogueController : Controller
     {
-        public IActionResult Index()
+        public int PageSize = 3;
+        public IActionResult Index(int page = 1)
         {
-            // ViewBag.music = Repository.Products.OfType<MusicCD>().ToList();
-            // ViewBag.movies = Repository.Products.OfType<Movie>().ToList();
-            // ViewBag.books = Repository.Products.OfType<Book>().ToList();
+            ProductListsViewModel model = new ProductListsViewModel();
+            var Products = Repository.Products
+                .OrderBy(p => p.ProductId)
+                .Skip((page - 1) * this.PageSize)
+                .Take(this.PageSize);
 
-            return View(Repository.Products);
+            var Paginator = new Paginator
+            {
+                CurrentPage = page,
+                ItemsPerPage = this.PageSize,
+                TotalItems = Repository.Products.Count()
+            };
+
+
+            model = new ProductListsViewModel { Products = Products, Paginator = Paginator };
+            return View(model);
         }
     }
 }
