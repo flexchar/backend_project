@@ -34,9 +34,35 @@ namespace MandotaryAssignment01
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "pagination",
-                    template: "Catalogue/page/{page}",
-                    defaults: new { Controller = "Catalogue", action = "Index" }
+                    name: null,
+                    template: "catalogue/{category}/page/{page:int}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index"
+                    }
+                );
+
+                routes.MapRoute(
+                    name: null,
+                    template: "page/{page:int}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index",
+                        productPage = 1
+                    }
+                );
+
+                routes.MapRoute(
+                    name: null,
+                    template: "catalogue/{category}",
+                    defaults: new
+                    {
+                        controller = "Catalogue",
+                        action = "Index",
+                        productPage = 1
+                    }
                 );
 
                 routes.MapRoute(

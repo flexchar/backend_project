@@ -12,9 +12,12 @@
     <body class="flex flex-col h-full">
         @await Html.PartialAsync("_Header")
 
-        <section class="container px-2 flex-1">
-            <h2 class="text-4xl pb-2">@ViewData["Title"]</h2>
+        <aside class="container px-2">
+            @await Component.InvokeAsync("NavigationCategories")
+        </aside>
 
+        <section class="container flex-1 px-2">
+            <h2 class="text-4xl pb-2">@ViewData["Title"]</h2>
             @RenderBody()
         </section>
 

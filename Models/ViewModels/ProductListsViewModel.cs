@@ -8,5 +8,8 @@ namespace MandotaryAssignment01.Models.ViewModels
     {
         public IEnumerable<Product> Products { get; set; }
         public Paginator Paginator { get; set; }
+
+        public string CurrentCategory { get; set; }
+
     }
 }
