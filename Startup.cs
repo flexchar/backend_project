@@ -30,7 +30,21 @@ namespace MandotaryAssignment01
 
             app.UseSession();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "pagination",
+                    template: "Catalogue/page/{page}",
+                    defaults: new { Controller = "Catalogue", action = "Index" }
+                );
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Catalogue}/{action=Index}/{id?}"
+                );
+            });
+
         }
     }
 }
