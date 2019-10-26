@@ -11,6 +11,17 @@ namespace MandotaryAssignment01.Infrastructure
         public static List<Product> Products = new List<Product>();
         public static List<Invoice> Invoices = new List<Invoice>();
 
+        public static int getProductsCount(string category = null)
+        {
+
+            if (category == null)
+            {
+                return Repository.Products.Count();
+            }
+
+            return Repository.Products.Where(p => p.Category == category).Count();
+        }
+
         static Repository()
         {
             Book b1 = new Book("Georg Martin", "With a Little Help from My Friends: The Making of Sgt. Pepper", 19.95M, 1995);
