@@ -6,28 +6,27 @@
     <img data-random class="w-full" />
 
     <div class="flex-1 p-4">
-        <strong>Album:</strong>
-        @Model.Label
-        <br />
-        <strong>Artist:</strong>
-        @Model.Artist
-        <br />
-        <strong>Price:</strong>
-        @Model.Price
-        <br />
-        <div>
-            <strong>Tracks: @Model.Tracks.Count</strong>
-
-            <ol>
-                @foreach (Track t in Model.Tracks) {
-                <li>@t.Title @t.Composer @t.Length</li>
-                }
-            </ol>
-            <p>
-                <strong>Total playing time:</strong>
-                @Model.PlayingTime
-            </p>
-        </div>
+        <h2 class="text-xl py-2">@Model.Label</h2>
+        <p>by @Model.Artist</p>
     </div>
+
+    <div class="p-4 bg-gray-100 text-gray-700">
+        TRACKS @Model.Tracks.Count
+
+        <ol class="text-gray-900 pt-2">
+            @foreach (Track t in Model.Tracks) {
+            <li class="flex justify-between">
+                <p>@t.Title @t.Composer</p>
+                <p title="Duration @Model.PlayingTime">💿 @t.Length</p>
+            </li>
+            }
+        </ol>
+    </div>
+
+    <div class="p-4 mb-4 bg-green-100 text-green-700 flex justify-between">
+        <p>@Model.Price.ToString("c")</p>
+        <p title="Duration @Model.PlayingTime">💿 @Model.PlayingTime</p>
+    </div>
+
     @await Component.InvokeAsync("AddToCart", @Model.ProductId)
 </div>
