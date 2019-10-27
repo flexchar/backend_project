@@ -1,6 +1,6 @@
-using MandotaryAssignment01.Models.ViewModels;
+using Backend.Models.ViewModels;
 
-namespace MandotaryAssignment01.Models.ViewModels
+namespace Backend.Models.ViewModels
 {
     public class CartIndexViewModel
     {

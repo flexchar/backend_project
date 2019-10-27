@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MandotaryAssignment01.Infrastructure;
-using MandotaryAssignment01.Models;
-using MandotaryAssignment01.Models.ViewModels;
+using Backend.Infrastructure;
+using Backend.Models;
+using Backend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MandotaryAssignment01.Controllers
+namespace Backend.Controllers
 {
     public class CartController : Controller
     {

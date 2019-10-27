@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace MandotaryAssignment01.ViewComponents
+namespace Backend.ViewComponents
 {
     public class AddToCart : ViewComponent
     {

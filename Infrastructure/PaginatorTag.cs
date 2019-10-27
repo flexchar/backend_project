@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using MandotaryAssignment01.Models.ViewModels;
+using Backend.Models.ViewModels;
 using System.Collections.Generic;
 
-namespace MandotaryAssignment01.Infrastructure
+namespace Backend.Infrastructure
 {
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PaginatorTag : TagHelper

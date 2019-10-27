@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MandotaryAssignment01.ViewComponents
+namespace Backend.ViewComponents
 {
     public class NavigationCategories : ViewComponent
     {

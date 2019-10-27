@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using MandotaryAssignment01.Models;
+using Backend.Models;
 
-namespace MandotaryAssignment01.Models.ViewModels
+namespace Backend.Models.ViewModels
 {
     public class Cart
     {

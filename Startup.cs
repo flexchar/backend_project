@@ -1,10 +1,10 @@
-﻿using MandotaryAssignment01.Models.ViewModels;
+﻿using Backend.Models.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MandotaryAssignment01
+namespace Backend
 {
     public class Startup
     {

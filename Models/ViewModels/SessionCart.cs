@@ -1,10 +1,10 @@
 using System;
-using MandotaryAssignment01.Infrastructure;
+using Backend.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
-namespace MandotaryAssignment01.Models.ViewModels
+namespace Backend.Models.ViewModels
 {
     public class SessionCart : Cart
     {

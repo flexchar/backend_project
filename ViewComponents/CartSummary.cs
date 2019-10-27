@@ -1,7 +1,7 @@
-using MandotaryAssignment01.Models.ViewModels;
+using Backend.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MandotaryAssignment01.ViewComponents
+namespace Backend.ViewComponents
 {
     public class CartSummary : ViewComponent
     {

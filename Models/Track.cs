@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MandotaryAssignment01.Models
+namespace Backend.Models
 {
     public class Track
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MandotaryAssignment01.Infrastructure;
+using Backend.Infrastructure;
 
-namespace MandotaryAssignment01.Controllers
+namespace Backend.Controllers
 {
     public class InvoicesController : Controller
     {

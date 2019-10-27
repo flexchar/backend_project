@@ -1,6 +1,6 @@
 using System;
 
-namespace MandotaryAssignment01.Models.ViewModels
+namespace Backend.Models.ViewModels
 {
     public class Paginator
     {

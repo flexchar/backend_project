@@ -1,7 +1,7 @@
-﻿using MandotaryAssignment01.Models;
+﻿using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MandotaryAssignment01.ViewComponents
+namespace Backend.ViewComponents
 {
     public class MovieItem : ViewComponent
     {
